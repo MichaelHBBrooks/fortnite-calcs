@@ -1,11 +1,23 @@
-// Application entrypoint.
-
-// Load up the application styles
-require("../styles/application.scss");
-
-// Render the top-level React component
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('react-root'));
+import { Main } from './Main.jsx';
+import { Nav } from './Nav.jsx';
+
+import '../stylesheets/main.scss';
+
+class Root extends React.Component {
+    render() {
+        return (
+            <BrowserRouter>
+        		<div>
+	        		<Main />
+	        		<Nav /> 
+        		</div>
+        	</BrowserRouter>
+        );
+    }
+}
+
+ReactDOM.render(<Root />, document.getElementById('react-root'));
